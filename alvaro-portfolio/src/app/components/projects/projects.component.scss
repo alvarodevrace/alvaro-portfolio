@@ -1,0 +1,142 @@
+.project-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.project-card-link {
+  display: block;
+}
+
+.project-card {
+  position: relative;
+  padding: 1.75rem;
+  border: 1px solid var(--border);
+  border-radius: 1.75rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015)),
+    rgba(26, 26, 26, 0.88);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: -30% 40% auto -10%;
+  height: 12rem;
+  background: radial-gradient(circle, rgba(79, 142, 247, 0.16), transparent 60%);
+  pointer-events: none;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(79, 142, 247, 0.35);
+  box-shadow: 0 18px 40px rgba(79, 142, 247, 0.12);
+}
+
+.project-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  color: var(--muted);
+  font-family: var(--font-nav);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.project-cta {
+  color: var(--text);
+}
+
+.project-card h3 {
+  margin: 0;
+  font-size: 1.45rem;
+}
+
+.project-logo-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 4.25rem;
+  margin: 0 0 1rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.1rem;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.project-logo {
+  display: block;
+  width: auto;
+  height: 2.4rem;
+  object-fit: contain;
+}
+
+.project-card p {
+  max-width: 50rem;
+  margin: 0.9rem 0 1.2rem;
+  color: var(--muted);
+}
+
+.project-client {
+  margin: -0.2rem 0 1rem;
+  color: var(--text);
+  font-family: var(--font-nav);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.project-highlight {
+  display: inline-flex;
+  align-items: center;
+  margin: -0.1rem 0 1rem;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(6, 214, 160, 0.1);
+  border: 1px solid rgba(6, 214, 160, 0.18);
+  color: #b5f3df;
+  font-family: var(--font-nav);
+  font-size: 0.76rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 760px) {
+  .project-card {
+    padding: 1.35rem;
+    border-radius: 1.4rem;
+  }
+
+  .project-topline {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .project-card h3 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .project-logo-wrap {
+    width: 100%;
+  }
+
+  .project-logo {
+    height: 2rem;
+  }
+
+  .project-highlight {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.4;
+  }
+}

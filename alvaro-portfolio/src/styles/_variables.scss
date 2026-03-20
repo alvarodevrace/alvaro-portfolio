@@ -1,0 +1,14 @@
+:root {
+  --bg: #111111;
+  --bg-surface: #1a1a1a;
+  --text: rgba(255, 255, 255, 0.88);
+  --muted: rgba(255, 255, 255, 0.45);
+  --accent: #4f8ef7;
+  --accent-2: #7c3aed;
+  --accent-3: #06d6a0;
+  --border: rgba(255, 255, 255, 0.08);
+  --font-nav: 'Roboto Mono', monospace;
+  --font-body: 'Inter', sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+  --container: min(1160px, calc(100vw - 2rem));
+}

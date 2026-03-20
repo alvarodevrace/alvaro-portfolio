@@ -1,0 +1,40 @@
+<section id="contact" class="section contact-section">
+  <div class="container">
+    <div class="contact-panel" appScrollReveal>
+      <p class="section-kicker">Contact</p>
+      <div class="contact-grid">
+        <div>
+          <h2 class="section-title">Disponible para proyectos selectos de producto, migración y automatización.</h2>
+          <p class="contact-copy">
+            Trabajo especialmente bien cuando hay que ordenar complejidad, acelerar delivery y mantener estándar técnico alto.
+          </p>
+
+          <div class="contact-actions">
+            <a class="button button-primary" [href]="'mailto:' + owner.email">{{ owner.email }}</a>
+            <a class="button button-secondary" [href]="'tel:' + owner.phone">{{ owner.phone }}</a>
+            <a class="button button-secondary" [href]="owner.linkedin" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+        </div>
+
+        <div class="contact-meta">
+          <article>
+            <span>Ubicación</span>
+            <strong>{{ owner.location }}</strong>
+          </article>
+          <article>
+            <span>Enfoque</span>
+            <strong>Frontend, Backend, AI Workflows</strong>
+          </article>
+          <article>
+            <span>Canal rápido</span>
+            <strong>{{ owner.email }}</strong>
+          </article>
+          <article>
+            <span>Teléfono</span>
+            <strong>{{ owner.phone }}</strong>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

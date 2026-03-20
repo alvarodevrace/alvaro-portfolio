@@ -1,0 +1,21 @@
+<section id="stack" class="section">
+  <div class="container">
+    <div class="section-heading" appScrollReveal>
+      <p class="section-kicker">// expertise</p>
+      <h2 class="section-title">Tecnologías y herramientas que uso para construir producto real.</h2>
+    </div>
+
+    <div class="stack-grid">
+      @for (category of stack; track category.category; let i = $index) {
+        <article class="stack-card" appScrollReveal [revealDelay]="i * 60">
+          <h3>{{ category.category }}</h3>
+          <div class="chip-list">
+            @for (item of category.items; track item) {
+              <span class="chip">{{ item }}</span>
+            }
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>
