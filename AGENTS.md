@@ -39,12 +39,19 @@ git checkout -b develop
 
 ## Tickets activos para CODI
 
-| Issue | Título | Prioridad | Dependencias |
+| Issue | Título | Estado | Dependencias |
 |---|---|---|---|
-| **POR-1** | Bootstrap: Angular 18 + estructura base + GSAP | 🔴 Urgent | Ninguna — empezar aquí |
-| **POR-2** | Hero section: avatar + typewriter + animación entrada | 🔴 Urgent | POR-1 |
-| **POR-3** | Stack + Experience + About + Contact sections | 🟠 High | POR-2 |
-| **POR-4** | Proyectos + navbar + cursor personalizado | 🟠 High | POR-3 |
+| **POR-1** | Bootstrap: Angular 18 + estructura base + GSAP | ✅ Implementado en `por-1-bootstrap` | Ninguna |
+| **POR-2** | Hero section: avatar + typewriter + animación entrada | ✅ Implementado en `por-1-bootstrap` | POR-1 |
+| **POR-3** | Stack + Experience + About + Contact sections | ✅ Implementado en `por-1-bootstrap` | POR-2 |
+| **POR-4** | Proyectos + navbar + cursor personalizado | ✅ Implementado en `por-1-bootstrap` | POR-3 |
+
+### Estado actual del código
+
+- La app Angular ya existe en `~/Documents/Proyectos/Alvaro/Portfolio/alvaro-portfolio/`
+- Rama de trabajo actual: `por-1-bootstrap`
+- La rama feature ya fue pusheada a `origin/por-1-bootstrap`
+- CLAU debe hacer merge a `develop`, crear PR a `main` y continuar con deploy/infra
 
 ---
 
@@ -142,18 +149,19 @@ export const OWNER = {
   title: 'Full Stack Engineer',
   location: 'Quito, Ecuador',
   email: 'alcarreram@hotmail.com',
+  phone: '+593983936154',
   linkedin: 'https://www.linkedin.com/in/alcarreram/',
   github: 'https://github.com/alvarodevrace',
   avatar: 'https://avatars.githubusercontent.com/u/264550617?v=4',
   titles: ['Full Stack Engineer', 'AI-Augmented Developer', 'Systems Architect'],
-  about: `Ingeniero en Sistemas con 5+ años construyendo aplicaciones web de producción.
+  about: `Ingeniero en Sistemas con 7+ años construyendo aplicaciones web de producción.
 Especializado en arquitecturas full-stack y desarrollo asistido por IA —
 usando herramientas como Claude Code, Codex y Gemini CLI para entregar
 sistemas complejos con mayor velocidad y calidad.
 He trabajado para empresas en Ecuador, Estados Unidos y España,
 desde startups digitales hasta corporaciones como IBM y NBCUniversal.`,
   stats: [
-    { label: 'Años experiencia', value: '5+' },
+    { label: 'Años experiencia', value: '7+' },
     { label: 'Empresas', value: '4' },
     { label: 'País', value: 'Ecuador' },
   ]
@@ -212,7 +220,7 @@ export const EXPERIENCE = [
 ];
 
 export const STACK = [
-  { category: 'AI & Automatización', items: ['Claude Code', 'Codex', 'Windsurf', 'Gemini CLI', 'IBM Watson'] },
+  { category: 'AI & Automatización', items: ['n8n', 'Claude Code', 'Codex', 'Windsurf', 'Gemini CLI', 'IBM Watson'] },
   { category: 'Frontend', items: ['Angular 18', 'React', 'React Native', 'TypeScript', 'SCSS'] },
   { category: 'Backend', items: ['NestJS', 'Node.js', 'ASP.NET', 'GraphQL'] },
   { category: 'Databases', items: ['PostgreSQL', 'Supabase', 'SQL Server', 'MongoDB'] },

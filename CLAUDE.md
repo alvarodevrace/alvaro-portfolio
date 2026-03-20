@@ -8,8 +8,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## ESTADO ACTUAL
 
-> ⚠️ El app Angular **aún no existe**. POR-1 (CODI) debe ejecutar `ng new` primero.
-> Una vez creada, el código vive en `~/Documents/Proyectos/Alvaro/Portfolio/alvaro-portfolio/`
+> ✅ El app Angular ya existe en `~/Documents/Proyectos/Alvaro/Portfolio/alvaro-portfolio/`
+> ✅ CODI implementó la base visual y funcional en la rama `por-1-bootstrap`
+> 🔁 Siguiente paso de CLAU: merge a `develop`, PR a `main`, deploy y tareas de arquitectura/infra
 
 ---
 
@@ -23,7 +24,7 @@ npm run build                                              # build producción
 CI=1 ng build --configuration production --no-progress    # build limpio para CI/Coolify
 ```
 
-Bootstrap inicial (POR-1, solo una vez):
+Bootstrap inicial (POR-1, solo una vez, ya ejecutado):
 ```bash
 cd ~/Documents/Proyectos/Alvaro/Portfolio/
 ng new alvaro-portfolio --style=scss --routing=false --standalone
@@ -102,12 +103,12 @@ alvaro-portfolio/src/app/
 **Nunca crear issues de este proyecto en JauriaCrossfit.**
 
 ### Tickets activos
-| Issue | Título | Owner | Prioridad |
+| Issue | Título | Owner | Estado |
 |---|---|---|---|
-| POR-1 | Bootstrap: Angular 18 + estructura base + GSAP | CODI | 🔴 Urgent |
-| POR-2 | Hero section: avatar + typewriter + animación entrada | CODI | 🔴 Urgent |
-| POR-3 | Stack + Experience + About + Contact sections | CODI | 🟠 High |
-| POR-4 | Proyectos + navbar + cursor personalizado | CODI | 🟠 High |
+| POR-1 | Bootstrap: Angular 18 + estructura base + GSAP | CODI | ✅ Implementado en `por-1-bootstrap` |
+| POR-2 | Hero section: avatar + typewriter + animación entrada | CODI | ✅ Implementado en `por-1-bootstrap` |
+| POR-3 | Stack + Experience + About + Contact sections | CODI | ✅ Implementado en `por-1-bootstrap` |
+| POR-4 | Proyectos + navbar + cursor personalizado | CODI | ✅ Implementado en `por-1-bootstrap` |
 
 ### Flujo Git obligatorio
 ```
