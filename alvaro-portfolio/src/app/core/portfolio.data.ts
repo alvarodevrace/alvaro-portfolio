@@ -48,14 +48,14 @@ export const OWNER = {
   github: 'https://github.com/alvarodevrace',
   avatar: 'https://avatars.githubusercontent.com/u/264550617?v=4',
   titles: ['Full Stack Engineer', 'AI-Augmented Developer', 'Systems Architect'],
-  about: `Ingeniero en Sistemas con 5+ años construyendo aplicaciones web de producción.
+  about: `Ingeniero en Sistemas con 7+ años construyendo aplicaciones web de producción.
 Especializado en arquitecturas full-stack y desarrollo asistido por IA,
 usando herramientas como Claude Code, Codex y Gemini CLI para entregar
 sistemas complejos con mayor velocidad y calidad.
 He trabajado para empresas en Ecuador, Estados Unidos y España,
 desde startups digitales hasta corporaciones como IBM y NBCUniversal.`,
   stats: [
-    { label: 'Años experiencia', value: '5+' },
+    { label: 'Años experiencia', value: '7+' },
     { label: 'Empresas', value: '4' },
     { label: 'País base', value: 'Ecuador' },
   ] satisfies OwnerStat[],
