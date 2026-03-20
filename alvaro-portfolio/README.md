@@ -1,27 +1,76 @@
-# AlvaroPortfolio
+<div align="center">
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.21.
+<img src="https://avatars.githubusercontent.com/u/264550617?v=4" width="120" style="border-radius: 50%;" />
 
-## Development server
+# Álvaro Carrera
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+**Full Stack Engineer · AI-Augmented Development**
 
-## Code scaffolding
+Quito, Ecuador
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+[![Portfolio](https://img.shields.io/badge/Portfolio-alvarodevrace.tech-4F8EF7?style=flat&logoColor=white)](https://alvarodevrace.tech)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-alcarreram-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/alcarreram/)
 
-## Build
+</div>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+---
 
-## Running unit tests
+## About
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Systems Engineer with 5+ years building production-grade web applications. Currently focused on **AI-assisted development** — using tools like Claude Code, Codex and Gemini CLI to ship complex systems faster without losing architectural control.
 
-## Running end-to-end tests
+I build full products end-to-end: database, API, frontend, infrastructure, automation. Everything self-hosted when possible.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+---
 
-## Further help
+## Stack
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```
+Frontend    Angular 18 · React · React Native
+Backend     NestJS · Node.js · ASP.NET
+Database    PostgreSQL · Supabase · SQL Server · MongoDB
+Cloud       Azure · AWS · Docker · Coolify
+Automation  n8n · Evolution API · Telegram bots
+AI Tools    Claude Code · Codex · Windsurf · Gemini CLI · IBM Watson
+Security    Cybersecurity (MSc in progress) · CI/CD · RLS · Helmet
+```
+
+---
+
+## Experience
+
+**Full Stack Developer — CENTRIC** *(2025 – present)*
+Leading S4S migration for Grupo Casabaca. AI-assisted development workflows reducing delivery time by 30%.
+
+**Full Stack Developer — FROM DIGITAL (US)** *(2022 – 2024)*
+Built apps for NBCUniversal, ARS and FROM using React, Node.js, GraphQL and Azure Functions. Serverless architecture for field tech operations (React Native + Azure).
+
+**Full Stack Developer — IBM Ecuador** *(2020 – 2021)*
+Led "Noches Diners" app (Angular + SQL Server). Integrated IBM Watson chatbots. Established CI/CD with GitHub + Jenkins + Kiuwan.
+
+---
+
+## Featured Project
+
+**[Jauría CrossFit — Business Management System](https://jauriacrossfitness.com)**
+
+Full SaaS for a CrossFit gym built from scratch and deployed to production:
+Angular 18 admin panel · NestJS BFF · Supabase · 9 n8n automation workflows
+(billing reminders, WhatsApp payment validation, Telegram alerts, daily backups)
+
+---
+
+## Education
+
+- MSc Cybersecurity — Universidad Internacional de Valencia, Spain *(in progress)*
+- BSc Systems Engineering — Universidad de las Américas, Ecuador
+
+---
+
+## Local development
+
+```bash
+cd alvaro-portfolio
+npm start        # localhost:4200
+npm run build -- --configuration production --no-progress
+```
