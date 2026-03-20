@@ -29,10 +29,10 @@ git checkout -b develop
 
 | Issue | Título | Prioridad |
 |---|---|---|
-| ALV-166 | Bootstrap: Angular 18 + estructura base + GSAP | 🔴 Urgent |
-| ALV-167 | Hero section: avatar + typewriter + animación | 🔴 Urgent |
-| ALV-168 | Stack + Experience + About + Contact sections | 🟠 High |
-| ALV-169 | Proyectos + navbar + cursor personalizado | 🟠 High |
+| POR-1 | Bootstrap: Angular 18 + estructura base + GSAP | 🔴 Urgent |
+| POR-2 | Hero section: avatar + typewriter + animación | 🔴 Urgent |
+| POR-3 | Stack + Experience + About + Contact sections | 🟠 High |
+| POR-4 | Proyectos + navbar + cursor personalizado | 🟠 High |
 
 ## Flujo Git
 
