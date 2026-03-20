@@ -1,0 +1,49 @@
+<section id="inicio" class="hero section">
+  <div class="container hero-grid">
+    <div #heroCopy class="hero-copy">
+      <p class="eyebrow">// portfolio personal / 2026</p>
+      <h1>
+        Álvaro Carrera
+        <span class="type-line">
+          <span class="underline-accent">{{ activeTitle }}</span>
+          <span class="caret" aria-hidden="true"></span>
+        </span>
+      </h1>
+      <p class="hero-lead">
+        Diseño y construyo sistemas web escalables, con foco en producto, arquitectura y workflows de ingeniería asistidos por IA.
+      </p>
+
+      <div class="cta-row">
+        <a class="button button-primary" href="#projects">Ver proyectos</a>
+        <a class="button button-secondary" [href]="'mailto:' + owner.email">Hablemos</a>
+      </div>
+
+      <div class="featured-strip">
+        @for (client of clients; track client) {
+          <span>{{ client }}</span>
+        }
+      </div>
+    </div>
+
+    <aside #heroPanel class="hero-panel">
+      <div class="avatar-wrap">
+        <img [src]="owner.avatar" [alt]="owner.name" width="160" height="160">
+      </div>
+
+      <div class="status-card">
+        <p class="label">Ahora</p>
+        <strong>{{ owner.titles[1] }}</strong>
+        <span>{{ owner.location }}</span>
+      </div>
+
+      <div class="stat-grid">
+        @for (stat of owner.stats; track stat.label) {
+          <article class="stat-card">
+            <strong>{{ stat.value }}</strong>
+            <span>{{ stat.label }}</span>
+          </article>
+        }
+      </div>
+    </aside>
+  </div>
+</section>

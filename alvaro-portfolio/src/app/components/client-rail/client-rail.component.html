@@ -1,0 +1,18 @@
+<section class="client-rail-section" appScrollReveal>
+  <div class="container">
+    <div class="client-rail-header">
+      <p class="section-kicker">// selected clients & brands</p>
+      <p class="muted">
+        Experiencia entregando software para corporativos, consultoras, fintech y negocios operativos.
+      </p>
+    </div>
+
+    <div class="client-rail">
+      <div class="client-track">
+        @for (client of clients; track $index) {
+          <span>{{ client }}</span>
+        }
+      </div>
+    </div>
+  </div>
+</section>

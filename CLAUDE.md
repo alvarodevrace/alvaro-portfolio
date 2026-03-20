@@ -1,5 +1,67 @@
-# CLAUDE.md — Portfolio Personal · Álvaro Carrera
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
 ## Fuente de verdad absoluta. Leer completo antes de ejecutar cualquier tarea.
+
+---
+
+## ESTADO ACTUAL
+
+> ⚠️ El app Angular **aún no existe**. POR-1 (CODI) debe ejecutar `ng new` primero.
+> Una vez creada, el código vive en `~/Documents/Proyectos/Alvaro/Portfolio/alvaro-portfolio/`
+
+---
+
+## COMANDOS RÁPIDOS (una vez que exista `alvaro-portfolio/`)
+
+```bash
+cd ~/Documents/Proyectos/Alvaro/Portfolio/alvaro-portfolio/
+
+npm run start                                              # dev server (ng serve)
+npm run build                                              # build producción
+CI=1 ng build --configuration production --no-progress    # build limpio para CI/Coolify
+```
+
+Bootstrap inicial (POR-1, solo una vez):
+```bash
+cd ~/Documents/Proyectos/Alvaro/Portfolio/
+ng new alvaro-portfolio --style=scss --routing=false --standalone
+cd alvaro-portfolio
+npm install gsap
+```
+
+---
+
+## ARQUITECTURA DE LA APP
+
+- **One-page Angular 18** — standalone components, sin NgModules, sin router
+- Navegación entre secciones: `scrollIntoView({ behavior: 'smooth' })`
+- **GSAP**: cursor personalizado (2 círculos, lerp 0.12) + hover 3D tilt en cards de proyectos
+- **IntersectionObserver**: directiva `scroll-reveal` que añade clase `.visible` a elementos con `[data-reveal]`
+- **SCSS puro** — sin frameworks CSS; variables globales en `src/styles/_variables.scss`
+- Datos del propietario centralizados como constantes TypeScript (ver `AGENTS.md` para el objeto completo)
+
+### Estructura de carpetas
+
+```
+alvaro-portfolio/src/app/
+├── components/
+│   ├── hero/
+│   ├── about/
+│   ├── stack/
+│   ├── experience/
+│   ├── projects/
+│   └── contact/
+└── shared/
+    ├── navbar/
+    ├── cursor/          ← solo desktop (@media pointer: fine)
+    └── scroll-reveal/   ← directiva IntersectionObserver
+```
+
+### Secciones (en orden)
+
+`#hero` → `#about` → `#stack` → `#experience` → `#projects` → `#contact`
 
 ---
 
@@ -102,7 +164,7 @@
 
 ---
 
-## 5. DATOS DEL DUEÑO — CV COMPLETO
+## 5. DATOS DEL DUEÑO
 
 ### Identidad
 | Campo | Valor |
@@ -116,59 +178,7 @@
 | **GitHub** | https://github.com/alvarodevrace |
 | **Avatar** | https://avatars.githubusercontent.com/u/264550617?v=4 |
 
-### Resumen profesional (versión corta para el portfolio)
-> Senior Full Stack Engineer con 5+ años de experiencia diseñando y entregando sistemas escalables de alto rendimiento. Especializado en AI-Augmented Development — usando Claude Code, Codex, Gemini CLI y OpenRouter para acelerar workflows de ingeniería, reducir tiempos de entrega y mejorar la calidad del código.
-
-### Resumen profesional (versión larga para sección About)
-> Senior Full Stack Engineer con 5+ años de experiencia entregando sistemas escalables y de producción en arquitecturas web, cloud e IA. Especializado en AI-Augmented Development usando Codex, Claude Code, Gemini CLI y OpenRouter para acelerar entregas, mejorar calidad de código y automatizar workflows de ingeniería. Track record probado liderando migraciones de sistemas, diseñando arquitecturas de microservicios e implementando sistemas backend de alto rendimiento. Fuerte expertise en desarrollo cloud-native, DevOps y automatización con n8n, Coolify y entornos VPS (Hostinger). Enfocado en construir software robusto, mantenible y escalable alineado con objetivos de negocio.
-
-### Experiencia profesional
-
-**Senior Full Stack Engineer — CENTRIC** · 2025 – presente · Quito, Ecuador
-- Lidera migración integral a plataforma S4S para Grupo Casabaca, asegurando integridad de datos y alto rendimiento transaccional en sistemas empresariales críticos
-- Diseña e implementa arquitectura basada en microservicios mejorando escalabilidad y mantenibilidad
-- Integra workflows de AI-assisted development (Codex, Claude Code, Gemini CLI), reduciendo tiempo de desarrollo ~30% y mejorando calidad de código
-- Construye y optimiza APIs backend (Node.js) y aplicaciones frontend (Angular/React) para entornos de alto tráfico
-- Automatiza testing, documentación y pipelines de refactoring usando herramientas AI
-
-**Full Stack Engineer — FROM DIGITAL** · 2022 – 2024 · USA (remoto)
-- Desarrolló aplicaciones web enterprise usando React, Node.js y GraphQL para clientes internacionales
-- Construyó arquitecturas serverless con Azure Functions, reduciendo costos de infraestructura y aumentando escalabilidad
-- Desarrolló soluciones móviles con React Native para técnicos de campo, mejorando workflows operativos
-- Entregó soluciones de alto impacto para clientes incluyendo NBCUniversal, asegurando confiabilidad y escalabilidad
-
-**Full Stack Engineer — ADECCO (cliente: Diners Club)** · 2021 – 2022 · Quito, Ecuador
-- Lideró desarrollo de la plataforma "Digital Card" para Diners Club usando Angular y SQL Server
-- Optimizó rendimiento backend y queries de base de datos, reduciendo tiempos de respuesta significativamente
-- Soporte crítico de producción y estabilización de sistemas
-
-**Full Stack Engineer — IBM Ecuador** · 2020 – 2021 · Quito, Ecuador
-- Lead developer de plataforma "Noches Diners" usando Angular y SQL Server
-- Implementó chatbots con IA usando IBM Watson
-- Construyó pipelines CI/CD con GitHub y Jenkins asegurando deployments de alta calidad
-
-### Educación
-- **Maestría en Ciberseguridad** *(en curso)* — Universidad Internacional de Valencia, España
-- **Ingeniería en Sistemas e Informática** — Universidad de las Américas, Ecuador
-
-### Stack técnico completo (para sección Skills del portfolio)
-
-| Categoría | Tecnologías |
-|---|---|
-| **AI & Automatización** | Claude Code · Codex · Gemini CLI · OpenRouter · IBM Watson · Prompt Engineering |
-| **Frontend** | Angular 18 · React · React Native · TypeScript · JavaScript ES6+ · HTML/CSS · SCSS |
-| **Backend** | Node.js · NestJS · ASP.NET · REST APIs · GraphQL |
-| **Bases de datos** | PostgreSQL · Supabase · SQL Server · MySQL · MongoDB |
-| **Cloud & DevOps** | AWS · Azure · Docker · CI/CD · Jenkins · GitHub Actions |
-| **Infraestructura** | n8n · Coolify · Hostinger VPS · Supabase · Evolution API · Cloudflare |
-| **Arquitectura** | Microservicios · Serverless · Event-Driven Systems |
-| **Lenguajes** | Python · JavaScript · TypeScript · SQL · C# |
-| **Idiomas** | Español (nativo) · Inglés (profesional) |
-
-### Proyectos reales para mostrar en el portfolio
-| Proyecto | Descripción | Stack | URL |
-|---|---|---|---|
-| **Jauría CrossFit** | Sistema de gestión completo para gym: panel admin, cobros automáticos, WhatsApp, Telegram | Angular 18 · NestJS · Supabase · n8n · Docker · Coolify | https://jauriacrossfitness.com |
+> CV completo, experiencia profesional, stack técnico detallado y constantes TypeScript listas para usar → ver **`AGENTS.md`**
 
 ---
 
@@ -190,7 +200,7 @@ $accent-3:    #06D6A0;                    // verde/teal — tercer acento
 $border:      rgba(255, 255, 255, 0.08);  // bordes sutiles
 ```
 
-### Tipografía (igual que tamalsen.dev — monospace en nav = sensación técnica)
+### Tipografía
 ```scss
 $font-nav:     'Roboto Mono', monospace;    // navbar, labels, chips de stack
 $font-body:    'Inter', sans-serif;          // cuerpo de texto
@@ -202,7 +212,7 @@ Google Fonts en `index.html`:
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600&family=Inter:wght@300;400;500&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
 ```
 
-### Navbar — tomado de tamalsen.dev
+### Navbar
 ```scss
 nav {
   position: fixed;
@@ -222,8 +232,8 @@ nav {
 }
 ```
 
-### Cursor personalizado — igual que tamalsen.dev
-Dos círculos concéntricos con GSAP:
+### Cursor personalizado (solo desktop)
+Dos círculos concéntricos con GSAP. GSAP ticker con lerp 0.12 para el outer (lag suave):
 ```scss
 .cursor-outer {
   width: 36px; height: 36px;
@@ -241,9 +251,8 @@ Dos círculos concéntricos con GSAP:
 }
 // hover sobre links: outer crece a 56px, cambia color
 ```
-GSAP ticker con lerp 0.12 para el outer (lag suave).
 
-### Efecto "chonky underline" — firma visual de tamalsen.dev
+### Efecto "chonky underline"
 ```scss
 .underline-accent {
   position: relative;
@@ -263,7 +272,7 @@ GSAP ticker con lerp 0.12 para el outer (lag suave).
 }
 ```
 
-### Scroll reveal — animación de entrada
+### Scroll reveal
 ```scss
 [data-reveal] {
   opacity: 0;
@@ -324,8 +333,7 @@ GSAP ticker con lerp 0.12 para el outer (lag suave).
 - Avatar: circular, 130px, glow de acento — posición desktop a la derecha
 
 ### `#about`
-Texto completo del resumen largo (ver sección 5).
-Stats: `5+ años` · `4 empresas` · `Ecuador 🇪🇨`
+Resumen largo de Álvaro (ver `AGENTS.md`). Stats: `5+ años` · `4 empresas` · `Ecuador 🇪🇨`
 
 ### `#stack`
 Grid de chips agrupados por categoría con Roboto Mono, hover glow en color de acento.

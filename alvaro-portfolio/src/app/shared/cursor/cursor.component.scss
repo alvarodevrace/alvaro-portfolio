@@ -1,0 +1,56 @@
+.cursor-outer,
+.cursor-inner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  border-radius: 999px;
+  z-index: 9999;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition:
+    opacity 0.12s ease,
+    background 0.16s ease,
+    border-color 0.16s ease;
+  will-change: transform;
+}
+
+.cursor-outer {
+  width: 36px;
+  height: 36px;
+  margin-left: -18px;
+  margin-top: -18px;
+  border: 1.5px solid rgba(79, 142, 247, 0.55);
+  background: rgba(79, 142, 247, 0.04);
+}
+
+.cursor-inner {
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  margin-top: -4px;
+  background: var(--accent);
+}
+
+.cursor-outer.is-visible,
+.cursor-inner.is-visible {
+  opacity: 1;
+}
+
+.cursor-outer.is-hovering {
+  transform: translate(-50%, -50%) scale(1.45);
+  border-color: rgba(6, 214, 160, 0.7);
+  background: rgba(6, 214, 160, 0.08);
+}
+
+.cursor-inner.is-hovering {
+  transform: translate(-50%, -50%) scale(0.7);
+  background: var(--accent-3);
+}
+
+@media (pointer: coarse) {
+  .cursor-outer,
+  .cursor-inner {
+    display: none;
+  }
+}

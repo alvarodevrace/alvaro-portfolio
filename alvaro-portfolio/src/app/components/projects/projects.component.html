@@ -1,0 +1,52 @@
+<section id="projects" class="section">
+  <div class="container">
+    <div class="section-heading" appScrollReveal>
+      <p class="section-kicker">Projects</p>
+      <h2 class="section-title">Casos reales con foco en automatización, operación y resultado.</h2>
+    </div>
+
+    <div class="project-grid">
+      @for (project of projects; track project.name; let i = $index) {
+        <a
+          class="project-card-link"
+          [href]="project.url"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="'Abrir proyecto ' + project.name"
+          appScrollReveal
+          [revealDelay]="i * 80"
+        >
+        <article class="project-card">
+          <div class="project-topline">
+            <span>Proyecto destacado / cliente real</span>
+            <span class="project-cta">Abrir sitio</span>
+          </div>
+
+          @if (project.logo) {
+            <div class="project-logo-wrap">
+              <img class="project-logo" [src]="project.logo" [alt]="'Logo de ' + project.name">
+            </div>
+          }
+
+          <h3>{{ project.name }}</h3>
+          <p>{{ project.description }}</p>
+
+          @if (project.highlight) {
+            <p class="project-highlight">{{ project.highlight }}</p>
+          }
+
+          @if (project.client) {
+            <p class="project-client">Cliente: {{ project.client }}</p>
+          }
+
+          <div class="chip-list">
+            @for (item of project.stack; track item) {
+              <span class="chip">{{ item }}</span>
+            }
+          </div>
+        </article>
+        </a>
+      }
+    </div>
+  </div>
+</section>
