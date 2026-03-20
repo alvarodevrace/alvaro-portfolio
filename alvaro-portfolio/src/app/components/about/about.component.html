@@ -1,0 +1,26 @@
+<section id="about" class="section">
+  <div class="container about-grid">
+    <div class="section-heading" appScrollReveal>
+      <p class="section-kicker">About</p>
+      <h2 class="section-title">Ingeniería full-stack con criterio de producto y soporte real a operación.</h2>
+    </div>
+
+    <div class="about-copy" appScrollReveal [revealDelay]="120">
+      <p>{{ owner.about }}</p>
+
+      <div class="clients-block">
+        <p class="clients-label">Clientes y marcas expuestas en el portfolio</p>
+        <div class="client-list">
+          @for (client of clients; track client) {
+            <span class="chip">{{ client }}</span>
+          }
+        </div>
+      </div>
+
+      <div class="info-row">
+        <a class="underline-accent" [href]="owner.linkedin" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a class="underline-accent" [href]="owner.github" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>

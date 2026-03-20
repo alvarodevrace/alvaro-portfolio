@@ -1,0 +1,80 @@
+<section id="experience" class="section">
+  <div class="container">
+    <div class="section-heading" appScrollReveal>
+      <p class="section-kicker">Experience</p>
+      <h2 class="section-title">Trayectoria enfocada en delivery, escalabilidad y velocidad de ejecución.</h2>
+    </div>
+
+    <div class="timeline">
+      @for (item of experience; track item.company; let i = $index) {
+        <article class="timeline-item" appScrollReveal [revealDelay]="i * 70">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div class="company-block">
+                <div class="company-badge">
+                  @if (item.logo && !logoFailed(badgeKey(item.logo, item.slug))) {
+                    <img
+                      [src]="item.logo"
+                      [alt]="'Logo de ' + item.company"
+                      (error)="onLogoError(badgeKey(item.logo, item.slug))"
+                    >
+                  }
+                  @if (!item.logo || logoFailed(badgeKey(item.logo, item.slug))) {
+                    <span>{{ initials(item.company) }}</span>
+                  }
+                </div>
+
+                <div class="company-copy">
+                  <p class="period">{{ item.period }}</p>
+                  <h3>{{ item.role }} · {{ item.company }}</h3>
+
+                  @if (item.clientName) {
+                    <div class="client-inline">
+                      <span>Cliente:</span>
+
+                      @if (item.clientLogo && !logoFailed(badgeKey(item.clientLogo, item.clientName))) {
+                        <img
+                          [src]="item.clientLogo"
+                          [alt]="'Logo de ' + item.clientName"
+                          (error)="onLogoError(badgeKey(item.clientLogo, item.clientName))"
+                        >
+                      }
+
+                      <strong>{{ item.clientName }}</strong>
+                    </div>
+                  }
+                </div>
+              </div>
+              <span>{{ item.location }}</span>
+            </div>
+
+            <p class="summary">{{ item.summary }}</p>
+
+            @if (item.projectLinks?.length) {
+              <div class="project-links">
+                @for (link of item.projectLinks; track link.url) {
+                  <a
+                    class="project-link-chip"
+                    [href]="link.url"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span>{{ link.label }}</span>
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                }
+              </div>
+            }
+
+            <ul>
+              @for (detail of item.details; track detail) {
+                <li>{{ detail }}</li>
+              }
+            </ul>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

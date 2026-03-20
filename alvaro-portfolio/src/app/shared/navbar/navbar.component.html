@@ -1,0 +1,13 @@
+<nav class="site-nav" [class.scrolled]="isScrolled" aria-label="Navegación principal">
+  <div class="container nav-inner">
+    <a class="brand underline-accent" href="#inicio" aria-label="Ir al inicio">
+      // alvarodevrace
+    </a>
+
+    <div class="nav-links">
+      @for (link of links; track link.href) {
+        <a [href]="link.href">{{ link.label }}</a>
+      }
+    </div>
+  </div>
+</nav>
