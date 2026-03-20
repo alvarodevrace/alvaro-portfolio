@@ -90,18 +90,47 @@ alvaro-portfolio/
 
 ---
 
+## Referencia de diseño
+
+**Página de inspiración:** https://tamalsen.dev/
+Analizada por CLAU. El portfolio debe replicar este nivel de calidad visual.
+
+### Lo que debes tomar de esa página
+
+| Elemento | Cómo hacerlo |
+|---|---|
+| Navbar monospace | Roboto Mono, fixed, blur al scrollear |
+| Cursor personalizado | 2 círculos GSAP, outer con lag |
+| Subrayados animados | `::after` con gradiente, crece en hover |
+| Scroll reveal | IntersectionObserver + transition cubic-bezier |
+| Cards proyectos | border sutil, hover translateY(-6px) + glow |
+| Hero mínimo | nombre grande, typewriter, 2 CTAs, mucho aire |
+| Timeline experience | línea izquierda con gradiente + dots con glow |
+| Secciones con aire | padding-top/bottom 120px mínimo |
+
+---
+
 ## Variables de diseño
 
 ```scss
-$bg: #0a0a0a;
-$text: #f5f5f5;
-$muted: #888888;
-$accent: #4F8EF7;
-$font-primary: 'Inter', sans-serif;
-$font-display: 'Space Grotesk', sans-serif;
+$bg:          #111111;
+$bg-surface:  #1a1a1a;
+$text:        rgba(255, 255, 255, 0.88);
+$muted:       rgba(255, 255, 255, 0.45);
+$accent:      #4F8EF7;
+$accent-2:    #7C3AED;
+$accent-3:    #06D6A0;
+$border:      rgba(255, 255, 255, 0.08);
+
+$font-nav:    'Roboto Mono', monospace;
+$font-body:   'Inter', sans-serif;
+$font-display:'Space Grotesk', sans-serif;
 ```
 
-Fuentes: Google Fonts — Inter + Space Grotesk → cargar en `index.html`
+Google Fonts en `index.html`:
+```html
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600&family=Inter:wght@300;400;500&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+```
 
 ---
 

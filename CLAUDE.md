@@ -140,30 +140,249 @@ Sep 2020 – Nov 2021 · Quito, Ecuador
 
 ## 6. Diseño del Portfolio
 
-### Estética
-- **Tema:** Dark mode — fondo `#0a0a0a`, texto `#f5f5f5`, muted `#888`
-- **Acento:** Azul eléctrico `#4F8EF7`
-- **Tipografía:** Inter + Space Grotesk (Google Fonts)
-- **Estilo:** Minimalista, impactante, mucho espacio en blanco, jerarquía clara
-- **Sin stock photos** — solo código, formas geométricas y el avatar
+### Referencia de diseño
+**Inspiración principal:** https://tamalsen.dev/
+Analizado en detalle. El portfolio de Álvaro debe tener el mismo nivel de calidad visual, minimalismo dark y microinteracciones. No copiar, sino tomar el estilo y adaptarlo.
 
-### Variables SCSS base
+---
+
+### Paleta de colores
+
 ```scss
-$bg: #0a0a0a;
-$text: #f5f5f5;
-$muted: #888888;
-$accent: #4F8EF7;
-$font-primary: 'Inter', sans-serif;
-$font-display: 'Space Grotesk', sans-serif;
+// Variables base — adaptar de tamalsen.dev al estilo de Álvaro
+$bg:          #111111;    // fondo principal — casi negro
+$bg-surface:  #1a1a1a;    // cards, navbar sticky
+$text:        rgba(255, 255, 255, 0.88);  // texto principal
+$muted:       rgba(255, 255, 255, 0.45);  // texto secundario
+$accent:      #4F8EF7;    // color de marca — azul eléctrico
+$accent-2:    #7C3AED;    // violeta — acento secundario
+$accent-3:    #06D6A0;    // verde/teal — tercer acento (hover cards)
+$border:      rgba(255, 255, 255, 0.08);  // bordes sutiles
 ```
 
-### Animaciones obligatorias
-- **Hero:** texto letra por letra o palabra por palabra al cargar (GSAP)
-- **Scroll reveal:** fade + slide al entrar en viewport (IntersectionObserver)
-- **Cursor personalizado:** círculo con lag (GSAP, solo desktop)
-- **Navbar:** backdrop-filter blur al scrollear
-- **Cards proyectos:** hover 3D tilt (GSAP)
-- **Typewriter:** cicla entre títulos profesionales
+### Tipografía
+
+```scss
+// Igual que tamalsen.dev — monospace para nav refuerza perfil técnico
+$font-nav:    'Roboto Mono', monospace;    // navbar, labels, chips
+$font-body:   'Inter', sans-serif;         // cuerpo de texto
+$font-display:'Space Grotesk', sans-serif; // títulos grandes
+```
+
+Google Fonts a cargar en `index.html`:
+```html
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600&family=Inter:wght@300;400;500&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+```
+
+---
+
+### Navbar — estilo tamalsen.dev
+
+```scss
+// Header fijo, transparente → blur al scrollear
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 72px;
+  font-family: $font-nav;
+  font-size: 0.95rem;
+  transition: height 0.3s ease, background 0.3s ease;
+
+  &.scrolled {
+    height: 56px;
+    background: rgba(17, 17, 17, 0.85);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid $border;
+  }
+}
+// Links de nav: Roboto Mono, hover con subrayado de acento
+```
+
+---
+
+### Cursor personalizado — igual que tamalsen.dev
+
+```scss
+// Dos círculos concéntricos siguiendo el mouse
+.cursor-outer {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba($accent, 0.6);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  transition: transform 0.12s ease; // lag suave — GSAP lerp
+  z-index: 9999;
+}
+.cursor-inner {
+  width: 8px;
+  height: 8px;
+  background: $accent;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+}
+// En hover sobre links/botones: cursor-outer crece a 56px, cambia color
+```
+
+Implementar con GSAP:
+```typescript
+// gsap.ticker para seguir el mouse con lerp suave
+gsap.ticker.add(() => {
+  cursorX += (mouseX - cursorX) * 0.12;
+  cursorY += (mouseY - cursorY) * 0.12;
+  gsap.set(cursorOuter, { x: cursorX - 18, y: cursorY - 18 });
+  gsap.set(cursorInner, { x: mouseX - 4, y: mouseY - 4 });
+});
+```
+
+---
+
+### Efecto "chonky underline" — tomado de tamalsen.dev
+
+Para títulos de sección y links importantes:
+
+```scss
+.underline-accent {
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 0.25em;
+    background: linear-gradient(65deg, $accent 0%, $accent-2 100%);
+    border-radius: 2px;
+    transition: height 0.25s ease;
+  }
+
+  &:hover::after {
+    height: 0.75em;
+  }
+}
+
+// Variante verde para experiencia
+.underline-green::after {
+  background: linear-gradient(65deg, $accent-3 0%, $accent 100%);
+}
+```
+
+---
+
+### Animaciones de entrada — inspirado en tamalsen.dev
+
+```scss
+// Base para scroll reveal
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s cubic-bezier(.215, .61, .355, 1),
+              transform 0.65s cubic-bezier(.215, .61, .355, 1);
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Variantes con delay stagger
+[data-reveal="delay-1"] { transition-delay: 0.1s; }
+[data-reveal="delay-2"] { transition-delay: 0.2s; }
+[data-reveal="delay-3"] { transition-delay: 0.3s; }
+[data-reveal="delay-4"] { transition-delay: 0.4s; }
+```
+
+Implementar con `ScrollRevealDirective` (IntersectionObserver).
+
+---
+
+### Cards de proyectos — estilo tamalsen.dev
+
+```scss
+.project-card {
+  background: $bg-surface;
+  border: 1px solid $border;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    border-color: rgba($accent, 0.4);
+    box-shadow: 0 20px 60px rgba($accent, 0.08);
+  }
+
+  .overlay {
+    // aparece en hover con info del proyecto
+    background: rgba(17, 17, 17, 0.92);
+    transition: opacity 0.3s ease;
+  }
+}
+```
+
+---
+
+### Hero section — estructura inspirada en tamalsen.dev
+
+Estructura mínima pero impactante:
+```
+[navbar]
+[hero]
+  → texto pequeño muted: "Hola, soy"
+  → nombre grande: "Álvaro Carrera"
+  → typewriter: "Full Stack Engineer" / "AI-Augmented Developer" / "Systems Architect"
+  → descripción 1 línea
+  → 2 CTAs: [Ver proyectos] [LinkedIn ↗]
+  → scroll indicator (flecha animada abajo)
+[expertise/stack]
+[projects/work]
+[experience]
+[contact]
+```
+
+---
+
+### Sección Experience — timeline como tamalsen.dev
+
+Timeline vertical con línea izquierda y puntos de acento:
+```scss
+.timeline-line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, $accent, $accent-2);
+}
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  background: $accent;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba($accent, 0.6); // glow
+}
+```
+
+---
+
+### Principios visuales tomados de tamalsen.dev
+
+1. **Monospace en nav** — Roboto Mono da sensación técnica/dev inmediata
+2. **Backdrop blur en navbar** — efecto glassmorphism al scrollear
+3. **Subrayados animados** — los `chonky-underline` en titles son la firma visual
+4. **Cursor personalizado** — dos círculos concéntricos, diferencia al instante
+5. **Cards sin shadow extrema** — solo border sutil + shadow en hover
+6. **Secciones con mucho aire** — padding vertical generoso (120px+)
+7. **Colores de acento solo en detalles** — no abusar, fondo siempre oscuro
+8. **Scroll reveal staggered** — elementos entran con delay escalonado
+9. **Typewriter en hero** — el ciclo de títulos engancha al visitante
+10. **Grid 2 columnas en proyectos** — limpio, deja respirar el contenido
 
 ---
 
