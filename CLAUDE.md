@@ -73,10 +73,24 @@
 | **GlitchTip** | Monitoreo de errores (Sentry OSS) | https://glitchtip.alvarodevrace.tech |
 | **GitHub** | Repositorios de código | github.com/alvarodevrace |
 
+### Coolify — UUIDs del proyecto Portfolio
+| Recurso | UUID |
+|---|---|
+| Proyecto Coolify | `owcq0qi5guhwpxnxuyafzpov` |
+| Environment "production" | `ggeh0egbiwteab1ub92jj2t6` |
+
+### Coolify — proyectos (estructura organizada)
+| Proyecto Coolify | Contenido |
+|---|---|
+| **Infra Global** (`dk8kc4ggo8s08koo8s4ggwcg`) | n8n, Evolution API, GlitchTip |
+| **Jauria CrossFit** (`w0gsw0c8goo4kwswo8ss0o8g`) | admin, api, landing — jauriacrossfitness.com |
+| **Portfolio Alvaro** (`owcq0qi5guhwpxnxuyafzpov`) | alvaro-portfolio — alvarodevrace.tech |
+
 ### Deploy del portfolio
-- Nueva app en Coolify apuntando a repo `alvaro-portfolio`, rama `main`
+- Nueva app en Coolify en proyecto `Portfolio Alvaro` → environment `production`
+- Apuntar a repo `alvaro-portfolio`, rama `main`
 - Dockerfile: `nginx:alpine` (igual que otros frontends de Álvaro)
-- DNS: registro A `alvarodevrace.tech` → IP del VPS Hostinger
+- DNS: registro A `alvarodevrace.tech` → IP del VPS Hostinger (Cloudflare zone `alvarodevrace.tech`)
 - SSL: Let's Encrypt vía Traefik (automático en Coolify)
 - Formspree: CLAU crea cuenta y configura endpoint para formulario de contacto
 - GlitchTip: conectar cuando esté en producción
