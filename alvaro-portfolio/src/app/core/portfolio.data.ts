@@ -153,6 +153,33 @@ export const PROJECTS: ProjectEntry[] = [
     logo: 'assets/jauria-logo.png',
     highlight: 'Automatizaciones con n8n para cobros, recordatorios, WhatsApp y Telegram',
   },
+  {
+    name: 'CobrosLatam',
+    description:
+      'Portal de contenido y herramientas para freelancers de LATAM que cobran al exterior. Calculadoras, comparadores y contenido SEO enfocado en monetización orgánica.',
+    stack: ['SEO', 'Contenido', 'Calculadoras', 'Monetización'],
+    url: 'https://cobroslatam.com',
+    client: 'CobrosLatam',
+    highlight: 'Estrategia de contenido y utilidades para captar tráfico orgánico de intención alta',
+  },
+  {
+    name: 'UtilBoxes',
+    description:
+      'Suite de herramientas online para usuarios y emprendedores de LATAM. Calculadoras, conversores y recursos prácticos diseñados para resolver tareas útiles del día a día.',
+    stack: ['Herramientas web', 'SEO', 'Contenido', 'UX'],
+    url: 'https://utilboxes.org',
+    client: 'UtilBoxes',
+    highlight: 'Producto orientado a utilidad directa, retención y crecimiento por búsqueda orgánica',
+  },
+  {
+    name: 'Las Chubys',
+    description:
+      'Plataforma editorial y comercial para una marca de contenido familiar. Blog, tienda, autenticación con Google, panel admin y automatización de operación sobre Astro SSR.',
+    stack: ['Astro', 'Supabase', 'SSR', 'E-commerce', 'SEO'],
+    url: 'https://laschubys.com',
+    client: 'Las Chubys',
+    highlight: 'Sitio de marca con blog, tienda y flujo admin para contenido y catálogo',
+  },
 ];
 
 export const CLIENTS = [
@@ -162,4 +189,7 @@ export const CLIENTS = [
   'IBM',
   'ARS',
   'Jauría CrossFit',
+  'CobrosLatam',
+  'UtilBoxes',
+  'Las Chubys',
 ];
