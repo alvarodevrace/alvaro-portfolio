@@ -160,6 +160,7 @@ export const PROJECTS: ProjectEntry[] = [
     stack: ['SEO', 'Contenido', 'Calculadoras', 'Monetización'],
     url: 'https://cobroslatam.com',
     client: 'CobrosLatam',
+    logo: 'assets/cobroslatam-logo.png',
     highlight: 'Estrategia de contenido y utilidades para captar tráfico orgánico de intención alta',
   },
   {
@@ -169,6 +170,7 @@ export const PROJECTS: ProjectEntry[] = [
     stack: ['Herramientas web', 'SEO', 'Contenido', 'UX'],
     url: 'https://utilboxes.org',
     client: 'UtilBoxes',
+    logo: 'assets/utilboxes-logo.png',
     highlight: 'Producto orientado a utilidad directa, retención y crecimiento por búsqueda orgánica',
   },
   {
@@ -178,6 +180,7 @@ export const PROJECTS: ProjectEntry[] = [
     stack: ['Astro', 'Supabase', 'SSR', 'E-commerce', 'SEO'],
     url: 'https://laschubys.com',
     client: 'Las Chubys',
+    logo: 'assets/laschubys-logo.png',
     highlight: 'Sitio de marca con blog, tienda y flujo admin para contenido y catálogo',
   },
 ];
