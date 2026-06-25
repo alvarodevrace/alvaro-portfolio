@@ -21,7 +21,7 @@ cd ~/Documents/Proyectos/Alvaro/Portfolio/alvaro-portfolio/
 
 npm run start                                              # dev server (ng serve)
 npm run build                                              # build producción
-CI=1 ng build --configuration production --no-progress    # build limpio para CI/Coolify
+CI=1 ng build --configuration production --no-progress    # build limpio para CI/Dokploy
 ```
 
 Bootstrap inicial (POR-1, solo una vez, ya ejecutado):
@@ -82,12 +82,12 @@ alvaro-portfolio/src/app/
 
 | Agente | Tool | Responsabilidad |
 |---|---|---|
-| **CLAU** | Claude Code | Arquitectura, deploy, Coolify, DNS Cloudflare, dominio, GitHub repos, Linear, infra, merge/PRs |
+| **CLAU** | Claude Code | Arquitectura, deploy, Dokploy, DNS Cloudflare, dominio, GitHub repos, Linear, infra, merge/PRs |
 | **CODI** | OpenAI Codex CLI | Todo el código: Angular 18, SCSS, animaciones GSAP, componentes, directivas, build |
 
 **Regla absoluta:**
 - CODI escribe código → CLAU despliega y supervisa
-- CODI nunca toca Coolify, DNS, dominios ni GitHub settings
+- CODI nunca toca Dokploy, DNS, dominios ni GitHub settings
 - CLAU nunca escribe código Angular/SCSS/TypeScript de la app
 
 ---
@@ -127,36 +127,39 @@ alvaro-portfolio/src/app/
 ### Stack de infraestructura de Álvaro
 | Herramienta | Uso | URL |
 |---|---|---|
-| **Coolify** | PaaS self-hosted para deploys | https://coolify.alvarodevrace.tech |
-| **Hostinger VPS** | Servidor físico donde corre Coolify | VPS en Hostinger |
+| **Dokploy** | PaaS self-hosted para deploys | http://100.105.133.25:3000 |
+| **Hostinger VPS** | Servidor físico donde corre Dokploy | VPS en Hostinger |
 | **Cloudflare** | DNS, proxy, SSL para todos los dominios | Zone `alvarodevrace.tech` |
 | **n8n** | Automatización de workflows | https://n8n.alvarodevrace.tech |
-| **Evolution API** | WhatsApp Business API | https://evolution.alvarodevrace.tech |
-| **Supabase** | Base de datos PostgreSQL + Auth | proyecto `bxatcmcommoqnxnyqchu` |
-| **GlitchTip** | Monitoreo de errores (Sentry OSS) | https://glitchtip.alvarodevrace.tech |
+| **Supabase** | Base de datos PostgreSQL + Auth | https://db.alvarodevrace.tech |
+| **Sentry** | Monitoreo de errores | https://alvarodevrace.sentry.io |
 | **GitHub** | Repositorios de código | github.com/alvarodevrace |
 
-### Coolify — UUIDs del proyecto Portfolio
-| Recurso | UUID |
+### Dokploy — IDs del proyecto Portfolio
+| Recurso | ID |
 |---|---|
-| Proyecto Coolify | `owcq0qi5guhwpxnxuyafzpov` |
-| Environment "production" | `ggeh0egbiwteab1ub92jj2t6` |
+| Proyecto Dokploy | `oSVdXwFYGekg16v18XNW1` |
+| Environment "production" | `6aSWtCz4LWWvtHfYJXXMG` |
+| Aplicación `alvaro-portfolio` | `r9HA2pNx6Uiip1sYJ8ubg` |
+| Deploy key GitHub | `dokploy-portfolio-deploy` |
 
-### Coolify — proyectos (estructura organizada)
-| Proyecto Coolify | Contenido |
+### Dokploy — proyectos (estructura organizada)
+| Proyecto Dokploy | Contenido |
 |---|---|
-| **Infra Global** (`dk8kc4ggo8s08koo8s4ggwcg`) | n8n, Evolution API, GlitchTip |
-| **Jauria CrossFit** (`w0gsw0c8goo4kwswo8ss0o8g`) | admin, api, landing — jauriacrossfitness.com |
-| **Portfolio Alvaro** (`owcq0qi5guhwpxnxuyafzpov`) | alvaro-portfolio — alvarodevrace.tech |
+| **infra** | Uptime Kuma, Docuseal, Supabase |
+| **automation** | n8n |
+| **analytics** | Umami |
+| **laschubys** | laschubys-app, laschubys-api |
+| **portfolio** | alvaro-portfolio — alvarodevrace.tech |
 
 ### Deploy del portfolio
-- Nueva app en Coolify en proyecto `Portfolio Alvaro` → environment `production`
-- Apuntar a repo `alvaro-portfolio`, rama `main`
-- Dockerfile: `nginx:alpine` (igual que otros frontends de Álvaro)
+- App en Dokploy en proyecto `portfolio` → environment `production`
+- Source type: Git (custom) → repo `alvarodevrace/alvaro-portfolio`, rama `main`, build path `alvaro-portfolio`
+- Build type: Dockerfile (`alvaro-portfolio/Dockerfile`)
 - DNS: registro A `alvarodevrace.tech` → IP del VPS Hostinger (Cloudflare zone `alvarodevrace.tech`)
-- SSL: Let's Encrypt vía Traefik (automático en Coolify)
+- SSL: Let's Encrypt vía Traefik (automático en Dokploy)
+- Auto-deploy: GitHub Actions llama a `/api/application.deploy` en cada push a `main`
 - Formspree: CLAU crea cuenta y configura endpoint para formulario de contacto
-- GlitchTip: conectar cuando esté en producción
 
 ### GitHub del proyecto
 - Username: `alvarodevrace`
@@ -362,10 +365,10 @@ Cards grid 2 columnas desktop / 1 columna mobile. Hover 3D tilt con GSAP. Solo 1
 | Estilos | SCSS puro — sin frameworks CSS |
 | Fonts | Roboto Mono + Inter + Space Grotesk |
 | Build | `CI=1 ng build --configuration production --no-progress` |
-| Deploy | Coolify → nginx:alpine → Hostinger VPS |
+| Deploy | Dokploy → nginx:alpine → Hostinger VPS |
 | DNS | Cloudflare → `alvarodevrace.tech` |
 | Formulario | Formspree |
-| Monitoreo | GlitchTip (cuando esté en producción) |
+| Monitoreo | Sentry |
 
 ---
 
@@ -379,13 +382,13 @@ Cards grid 2 columnas desktop / 1 columna mobile. Hover 3D tilt con GSAP. Solo 1
 6. Build: `CI=1 ng build --configuration production --no-progress`
 7. Cursor personalizado solo en desktop (`@media (pointer: fine)`)
 8. Commit en rama `por-X-nombre` → CLAU hace merge y PR
-9. Nunca tocar Coolify, DNS, dominio ni GitHub settings
+9. Nunca tocar Dokploy, DNS, dominio ni GitHub settings
 
 ## 10. REGLAS PARA CLAU
 
 1. Cuando CODI termine ticket → merge rama a develop → PR develop→main
-2. Al mergear → trigger deploy en Coolify
+2. Al mergear → trigger deploy en Dokploy vía GitHub Actions
 3. Configurar DNS `alvarodevrace.tech` → IP Hostinger VPS en Cloudflare
 4. Configurar Formspree y pasar endpoint a CODI vía HANDOFF
-5. Crear app en Coolify con Dockerfile nginx:alpine
-6. Conectar GlitchTip cuando llegue a producción
+5. Crear app en Dokploy con Dockerfile nginx:alpine
+6. Conectar Sentry cuando llegue a producción
