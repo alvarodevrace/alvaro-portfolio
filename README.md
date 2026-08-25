@@ -8,7 +8,6 @@
 
 Quito, Ecuador
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-alvarodevrace.tech-4F8EF7?style=flat&logoColor=white)](https://alvarodevrace.tech)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-alcarreram-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/alcarreram/)
 
 </div>
@@ -30,7 +29,7 @@ Frontend    Angular 18 · React · React Native
 Backend     NestJS · Node.js · ASP.NET
 Database    PostgreSQL · Supabase · SQL Server · MongoDB
 Cloud       Azure · AWS · Docker · Dokploy
-Automation  n8n · Telegram bots
+Automation  n8n · Evolution API · Telegram bots
 AI Tools    Claude Code · Codex · Windsurf · Gemini CLI · IBM Watson
 Security    Cybersecurity (MSc in progress) · CI/CD · RLS · Helmet
 ```
@@ -64,13 +63,4 @@ Angular 18 admin panel · NestJS BFF · Supabase · 9 n8n automation workflows
 
 - MSc Cybersecurity — Universidad Internacional de Valencia, Spain *(in progress)*
 - BSc Systems Engineering — Universidad de las Américas, Ecuador
-
----
-
-## Local development
-
-```bash
-cd alvaro-portfolio
-npm start        # localhost:4200
-npm run build -- --configuration production --no-progress
-```
+- Diploma in Cybersecurity — Universidad de las Américas, Ecuador
