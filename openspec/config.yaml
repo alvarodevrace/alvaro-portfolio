@@ -1,0 +1,44 @@
+schema: spec-driven
+
+context: |
+  Project: alvaro-portfolio — personal portfolio site (https://alvarodevrace.tech)
+  Repo root: Portfolio/ · App root: Portfolio/alvaro-portfolio/
+  Stack: Angular 18.2 standalone (one-page, no router), TypeScript 5.5 strict, SCSS, GSAP, npm
+  Build: @angular-devkit/build-angular:application (esbuild), Docker/nginx, GitHub Actions -> Dokploy on main
+  Tests: Karma + Jasmine (`ng test`), 1 existing spec; CI deploy workflow does not run tests
+  Quality: strict + strictTemplates type checking; no linter or formatter configured
+  Conventions: feature branches por-X-* -> develop -> main; design tokens in AGENTS.md
+
+strict_tdd: true
+
+testing:
+  runner: Karma + Jasmine
+  command: "ng test"
+  unit: true
+  integration: false
+  e2e: false
+  coverage_command: "ng test --code-coverage"
+
+rules:
+  proposal:
+    - Include rollback plan for risky changes
+  specs:
+    - Use Given/When/Then for scenarios
+    - Use RFC 2119 keywords (MUST, SHALL, SHOULD, MAY)
+  design:
+    - Document architecture decisions with rationale
+  tasks:
+    - Group by phase, use hierarchical numbering
+    - Keep tasks completable in one session
+  apply:
+    guidelines:
+      - Follow existing standalone component + SCSS-per-component patterns
+      - Keep one-page structure (no router) unless a change explicitly adds routing
+    tdd: true
+    test_command: "ng test"
+  verify:
+    test_command: "ng test"
+    build_command: "ng build --configuration production"
+    coverage_threshold: 0
+  archive:
+    - Warn before merging destructive deltas
