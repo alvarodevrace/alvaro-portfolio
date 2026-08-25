@@ -28,7 +28,7 @@ I build full products end-to-end: database, API, frontend, infrastructure, autom
 Frontend    Angular 18 · React · React Native
 Backend     NestJS · Node.js · ASP.NET
 Database    PostgreSQL · Supabase · SQL Server · MongoDB
-Cloud       Azure · AWS · Docker · Coolify
+Cloud       Azure · AWS · Docker · Dokploy
 Automation  n8n · Evolution API · Telegram bots
 AI Tools    Claude Code · Codex · Windsurf · Gemini CLI · IBM Watson
 Security    Cybersecurity (MSc in progress) · CI/CD · RLS · Helmet
