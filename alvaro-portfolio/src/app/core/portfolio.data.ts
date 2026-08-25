@@ -139,7 +139,7 @@ export const STACK: StackCategory[] = [
   { category: 'Frontend', items: ['Angular 18', 'React', 'React Native', 'TypeScript', 'SCSS'] },
   { category: 'Backend', items: ['NestJS', 'Node.js', 'ASP.NET', 'GraphQL'] },
   { category: 'Databases', items: ['PostgreSQL', 'Supabase', 'SQL Server', 'MongoDB'] },
-  { category: 'Cloud & DevOps', items: ['Azure', 'AWS', 'Docker', 'Coolify', 'GitHub Actions'] },
+  { category: 'Cloud & DevOps', items: ['Azure', 'AWS', 'Docker', 'Dokploy', 'GitHub Actions'] },
 ];
 
 export const PROJECTS: ProjectEntry[] = [

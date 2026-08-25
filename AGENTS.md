@@ -224,7 +224,7 @@ export const STACK = [
   { category: 'Frontend', items: ['Angular 18', 'React', 'React Native', 'TypeScript', 'SCSS'] },
   { category: 'Backend', items: ['NestJS', 'Node.js', 'ASP.NET', 'GraphQL'] },
   { category: 'Databases', items: ['PostgreSQL', 'Supabase', 'SQL Server', 'MongoDB'] },
-  { category: 'Cloud & DevOps', items: ['Azure', 'AWS', 'Docker', 'Coolify', 'GitHub Actions'] },
+  { category: 'Cloud & DevOps', items: ['Azure', 'AWS', 'Docker', 'Dokploy', 'GitHub Actions'] },
 ];
 
 export const PROJECTS = [
@@ -251,7 +251,7 @@ CI=1 ng build --configuration production --no-progress
 
 - Merge ramas feature → develop
 - Crear PRs develop → main
-- Configurar Coolify deploy
+- Configurar Dokploy deploy (GitHub Actions + secrets DOKPLOY_API_KEY / DOKPLOY_APP_ID)
 - Configurar DNS `alvarodevrace.tech` en Cloudflare
 - Conectar GlitchTip para monitoreo de errores
 - Configurar Formspree para el formulario de contacto
